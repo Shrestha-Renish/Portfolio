@@ -1,6 +1,10 @@
 // Typing effect
 var typed = new Typed(".typing", {
-  strings: ["Digital Marketer", "SEO Specialist", "LinkedIn Growth Expert"],
+  strings: [
+    "Digital Marketer",
+    "Social Media Management",
+    "LinkedIn Growth Expert",
+  ],
   typeSpeed: 80,
   backSpeed: 40,
   loop: true,
