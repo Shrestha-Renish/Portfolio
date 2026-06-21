@@ -356,15 +356,13 @@ strong { color: var(--cream); font-weight: 500; }
   width: 100%;
   height: 100%;
   object-fit: cover;
-  /* crop: show face & upper body */
-  object-position: center 70%;
-  transform: scale(1.28);
-  transform-origin: center 70%;
+  /* crop: show face & upper body — adjust % if needed */
+  object-position: center 12%;
   display: block;
   transition: transform 6s ease;
 }
 .hero-photo-frame:hover .hero-photo {
-  transform: scale(1.32) translateY(-2%);
+  transform: scale(1.03);
 }
 
 /* subtle gradient at the bottom of the photo */
@@ -877,115 +875,4 @@ strong { color: var(--cream); font-weight: 500; }
   transition: color var(--t), border-color var(--t);
   cursor: none;
 }
-.email-link:hover { color: var(--gold-light); border-color: var(--gold-light); }
-
-.socials {
-  display: flex;
-  justify-content: center;
-  gap: 1.25rem;
-  margin-bottom: 2.5rem;
-}
-.socials a {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 44px; height: 44px;
-  border: 1px solid var(--border);
-  border-radius: 50%;
-  font-size: 1rem;
-  color: var(--cream-muted);
-  transition: var(--t);
-  cursor: none;
-}
-.socials a:hover {
-  border-color: var(--gold);
-  color: var(--gold);
-  background: var(--gold-dim);
-  transform: translateY(-3px);
-}
-
-/* ═══════════════════════════════════════════
-   FOOTER
-═══════════════════════════════════════════ */
-.site-footer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0.75rem;
-  padding: 1.75rem 2rem;
-  border-top: 1px solid rgba(255,255,255,.07);
-  background: var(--dark-bg);
-  font-size: 0.75rem;
-  letter-spacing: 0.08em;
-  color: #52504d;
-}
-.footer-divider { color: #3d3830; }
-
-/* ═══════════════════════════════════════════
-   RESPONSIVE
-═══════════════════════════════════════════ */
-@media (max-width: 960px) {
-  .about-grid { grid-template-columns: 1fr; gap: 3rem; }
-  .gold-rule { display: none; }
-  .service-row { grid-template-columns: 60px 1fr; }
-  .service-pills { display: none; }
-  .cs-cols { grid-template-columns: 1fr; gap: 2rem; }
-  .cs-metrics { border-left: none; border-top: 1px solid var(--border-gold); padding-left: 0; padding-top: 1.5rem; flex-direction: row; flex-wrap: wrap; }
-  .cs-metric { flex: 1 1 120px; border-bottom: none; border-right: 1px solid var(--border); padding: 0 1.5rem 0 0; }
-  .cs-metric:last-child { border-right: none; }
-  .testimonials-list { grid-template-columns: 1fr; }
-}
-
-@media (max-width: 768px) {
-  body { cursor: auto; }
-  .cursor-ring, .cursor-dot { display: none; }
-
-  .nav-links {
-    position: fixed;
-    inset: 0;
-    background: var(--bg);
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 2.5rem;
-    transform: translateX(100%);
-    transition: transform 0.4s var(--ease-out);
-  }
-  .nav-links.open { transform: none; }
-  .nav-links a { font-size: 1.1rem; color: var(--cream-dim); cursor: auto; }
-  #nav-cta-btn { display: none; }
-  .hamburger { display: flex; z-index: 110; position: relative; }
-
-  .hero {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto auto auto;
-    padding: 7rem 1.5rem 4rem;
-    gap: 2rem 0;
-  }
-  .hero-left {
-    grid-column: 1;
-    grid-row: 1;
-  }
-  .hero-photo-wrap {
-    grid-column: 1;
-    grid-row: 2;
-  }
-  .hero-photo-frame {
-    height: 60vw;
-    max-height: 360px;
-  }
-  .hero-name { font-size: clamp(3.5rem, 15vw, 7rem); }
-  .hero-stats { flex-wrap: wrap; gap: 1.5rem; padding-top: 2rem; margin-top: 2rem; }
-  .h-stat { padding: 0 1rem 0 0; }
-  .h-stat-divider { display: none; }
-  .hero-scroll-hint { display: none; }
-
-  .section { padding: 5rem 1.5rem; }
-  .service-row { grid-template-columns: 1fr; gap: 0.5rem; }
-  .service-num { font-size: 1.5rem; margin-bottom: -0.5rem; }
-  .cs-metrics { flex-direction: column; }
-  .cs-metric { border-right: none; border-bottom: 1px solid var(--border); padding: 1rem 0; }
-
-  .btn, a { cursor: auto; }
-  .tag-list span, .nav-cta, .email-link, .socials a { cursor: auto; }
-}
+.email-link:hover { color: var(--gol

@@ -189,7 +189,4 @@ document.querySelectorAll('.cs-block').forEach((block) => {
   block.addEventListener('mouseenter', () => {
     title.style.color = 'var(--gold)';
   });
-  block.addEventListener('mouseleave', () => {
-    title.style.color = '';
-  });
-});
+  block.addEvent
