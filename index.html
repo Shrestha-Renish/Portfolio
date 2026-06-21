@@ -1,148 +1,412 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Renish Shrestha | Digital Marketer</title>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Renish Shrestha — Digital Marketer</title>
 
-    <!-- styles -->
-    <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <script src="https://unpkg.com/typed.js@2.0.12"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
 
-    <!-- typed.js (CDN) -->
-    <script src="https://unpkg.com/typed.js@2.0.12"></script>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-    />
-  </head>
-  <body>
-    <!-- Navigation (same as before) -->
-    <header>
-      <nav>
-        <h1 class="logo">Renish Shrestha</h1>
-        <ul class="nav-links">
-          <li><a href="#about">About</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#work">Work</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
-    </header>
+  <!-- Custom cursor -->
+  <div class="cursor-ring" id="cursor-ring"></div>
+  <div class="cursor-dot"  id="cursor-dot"></div>
 
-    <!-- Hero Section (updated: typing inline with heading) -->
-    <section class="hero">
-      <div class="hero-text">
-        <!-- typing is inline inside the same heading so cursor aligns perfectly -->
-        <h2 class="hero-heading">
-          Hello, I’m <span class="name">Renish</span> —
-          <span class="typing"></span>
+  <!-- ── NAV ──────────────────────────────────────── -->
+  <header id="site-header">
+    <nav class="nav-inner">
+      <a href="#" class="logo">Renish<span class="logo-dot">.</span></a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#case-studies">Work</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <a href="#contact" class="nav-cta" id="nav-cta-btn">Let's Talk</a>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- ── HERO ─────────────────────────────────────── -->
+  <div class="hero-wrapper">
+  <section class="hero" id="hero">
+
+    <!-- Left: text -->
+    <div class="hero-left">
+      <div class="hero-content">
+        <p class="hero-eyebrow load-line" style="--i:0">
+          <span class="eyebrow-line"></span>
+          Digital Marketer · Nepal
+        </p>
+
+        <h1 class="hero-heading">
+          <span class="load-line" style="--i:1"><em>Hello, I'm</em></span>
+          <span class="load-line hero-name" style="--i:2">Renish.</span>
+          <span class="load-line hero-role" style="--i:3">
+            I'm a <span class="typing"></span>
+          </span>
+        </h1>
+
+        <p class="hero-sub load-line" style="--i:4">
+          I help brands build presence, earn trust, and turn audiences
+          into customers — through strategy that actually works.
+        </p>
+
+        <div class="hero-actions load-line" style="--i:5">
+          <a href="#contact" class="btn btn-gold">Let's Work Together</a>
+          <a href="#case-studies" class="btn btn-outline">View My Work</a>
+        </div>
+      </div>
+
+      <div class="hero-stats load-line" style="--i:6">
+        <div class="h-stat">
+          <span class="h-stat-num">30<sup>+</sup></span>
+          <span class="h-stat-label">Brands Helped</span>
+        </div>
+        <div class="h-stat-divider"></div>
+        <div class="h-stat">
+          <span class="h-stat-num">150<sup>+</sup></span>
+          <span class="h-stat-label">Campaigns Run</span>
+        </div>
+        <div class="h-stat-divider"></div>
+        <div class="h-stat">
+          <span class="h-stat-num">500K<sup>+</sup></span>
+          <span class="h-stat-label">Total Reach</span>
+        </div>
+        <div class="h-stat-divider"></div>
+        <div class="h-stat">
+          <span class="h-stat-num">3<sup>+</sup></span>
+          <span class="h-stat-label">Years Experience</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: photo -->
+    <div class="hero-photo-wrap load-line" style="--i:2">
+      <div class="hero-photo-frame">
+        <img
+          src="photo.jpg"
+          alt="Renish Shrestha"
+          class="hero-photo"
+        />
+        <!-- subtle gradient fade at bottom -->
+        <div class="hero-photo-fade"></div>
+      </div>
+    </div>
+
+    <div class="hero-scroll-hint" aria-hidden="true">
+      <span>Scroll</span>
+      <span class="scroll-line"></span>
+    </div>
+  </section>
+  </div><!-- /hero-wrapper -->
+
+  <!-- ── MARQUEE ───────────────────────────────────── -->
+  <div class="marquee-track" aria-hidden="true">
+    <div class="marquee-inner">
+      <span>Social Media Strategy</span><span class="sep">·</span>
+      <span>SEO &amp; Content</span><span class="sep">·</span>
+      <span>LinkedIn Growth</span><span class="sep">·</span>
+      <span>Lead Generation</span><span class="sep">·</span>
+      <span>Brand Development</span><span class="sep">·</span>
+      <span>Campaign Management</span><span class="sep">·</span>
+      <span>Social Media Strategy</span><span class="sep">·</span>
+      <span>SEO &amp; Content</span><span class="sep">·</span>
+      <span>LinkedIn Growth</span><span class="sep">·</span>
+      <span>Lead Generation</span><span class="sep">·</span>
+      <span>Brand Development</span><span class="sep">·</span>
+      <span>Campaign Management</span><span class="sep">·</span>
+    </div>
+  </div>
+
+  <!-- ── ABOUT ─────────────────────────────────────── -->
+  <section id="about" class="section">
+    <div class="container about-grid">
+      <div class="about-left">
+        <p class="section-label" data-reveal>Who I am</p>
+        <h2 class="section-heading" data-reveal="delay-1">
+          Strategy-first.<br /><em>Results-obsessed.</em>
         </h2>
-
-        <p class="hero-sub">
-          Helping businesses grow online with strategies that convert 🚀
-        </p>
-        <a href="#contact" class="btn">Let’s Work Together</a>
+        <div class="gold-rule" data-reveal="delay-2"></div>
       </div>
-    </section>
 
-    <!-- Rest of the sections -->
-    <section id="about">
-      <div class="container">
-        <h2>About Me</h2>
-        <p>
-          As a results-driven Digital Marketer, I,
-          <strong>Renish Jayana Shrestha</strong>, specialize in crafting
-          impactful strategies that elevate brand presence and drive growth
-          across digital platforms. With a strong focus on
-          <strong>Social Media Management</strong>, I bring expertise in
-          building and managing online communities, curating engaging content,
-          and leveraging data-driven insights to optimize campaign performance.
+      <div class="about-right">
+        <p data-reveal="delay-1">
+          I'm <strong>Renish Jayana Shrestha</strong> — a Digital Marketer based in Nepal
+          with a focus on social media and content that converts. I don't manage accounts;
+          I build ecosystems where brands genuinely connect with people.
         </p>
-        <p>
-          In addition to my social media expertise, I am a seasoned
-          <strong>Content Creator/Writer</strong> with a passion for
-          storytelling that resonates with target audiences. Whether it's
-          developing content for blogs, websites, or social media, I craft
-          compelling narratives that align with brand goals and engage audiences
-          effectively.
+        <p data-reveal="delay-2">
+          Whether scaling from zero or optimising what's already working, I bring data
+          to every decision and creativity to every campaign. I live at the intersection
+          of storytelling and analytics.
         </p>
-        <p>
-          I thrive in fast-paced environments and am constantly exploring the
-          latest digital marketing trends to deliver cutting-edge solutions that
-          contribute to brand success.
+        <p data-reveal="delay-3">
+          When I'm not deep in a content calendar, I'm studying what makes people stop
+          scrolling — and engineering exactly that for my clients.
         </p>
 
-        <h3>Specialties</h3>
-        <ul class="specialties">
-          <li>Digital Marketing Strategy</li>
-          <li>Social Media Management</li>
-          <li>Content Creation & Writing</li>
-          <li>Brand Development</li>
-          <li>Campaign Management</li>
-        </ul>
-
-        <p class="cta">
-          Let’s connect to explore how I can help your brand grow through
-          innovative digital strategies.
-        </p>
-      </div>
-    </section>
-
-    <section id="services" class="section fade-in">
-      <h2>What I Do</h2>
-      <div class="cards">
-        <div class="card">
-          <span>📱</span>
-          <h3>Social Media Marketing</h3>
-          <p>Engaging campaigns that build brand authority and trust.</p>
-        </div>
-        <div class="card">
-          <span>⚡</span>
-          <h3>SEO Optimization</h3>
-          <p>Rank higher, get seen, and attract the right audience.</p>
-        </div>
-        <div class="card">
-          <span>🎯</span>
-          <h3>Lead Generation</h3>
-          <p>Data-driven strategies to convert clicks into customers.</p>
+        <div class="tag-list" data-reveal="delay-4">
+          <span>Digital Strategy</span>
+          <span>Social Media</span>
+          <span>Content Writing</span>
+          <span>Brand Development</span>
+          <span>LinkedIn Growth</span>
+          <span>Campaign Mgmt</span>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section id="work" class="section fade-in">
-      <h2>My Work</h2>
-      <div class="work-grid">
-        <div class="work-item">Case Study 1</div>
-        <div class="work-item">Case Study 2</div>
-        <div class="work-item">Case Study 3</div>
+  <!-- ── SERVICES ──────────────────────────────────── -->
+  <section id="services" class="section section-dark">
+    <div class="container">
+      <div class="section-header" data-reveal>
+        <p class="section-label section-label-light">What I do</p>
+        <h2 class="section-heading section-heading-light">
+          Three ways I grow<br /><em>your brand.</em>
+        </h2>
       </div>
-    </section>
 
-    <section id="contact" class="section fade-in contact">
-      <h2>Contact Me</h2>
-      <div class="socials">
-        <a
-          href="https://www.linkedin.com/in/renish-shrestha-334a0620a/"
-          target="_blank"
-          ><i class="fab fa-linkedin"></i
-        ></a>
-        <a href="mailto:srenish108@gmail.com"
-          ><i class="fas fa-envelope"></i
-        ></a>
-        <a href="https://www.instagram.com/renish_sth" target="_blank"
-          ><i class="fab fa-instagram"></i
-        ></a>
-        <a href="https://wa.me/9813855194" target="_blank"
-          ><i class="fab fa-whatsapp"></i
-        ></a>
+      <div class="services-list">
+        <div class="service-row" data-reveal="delay-1">
+          <span class="service-num">01</span>
+          <div class="service-body">
+            <h3>Social Media Marketing</h3>
+            <p>From content calendars to community management — a consistent brand voice that earns trust and drives measurable engagement across every platform.</p>
+          </div>
+          <ul class="service-pills">
+            <li>Platform Strategy</li>
+            <li>Content Creation</li>
+            <li>Community Growth</li>
+            <li>Analytics</li>
+          </ul>
+        </div>
+
+        <div class="service-row" data-reveal="delay-2">
+          <span class="service-num">02</span>
+          <div class="service-body">
+            <h3>Content &amp; SEO</h3>
+            <p>Words that rank and convert. Content strategies that get you found on Google and keep readers coming back — because great copy does both.</p>
+          </div>
+          <ul class="service-pills">
+            <li>Keyword Research</li>
+            <li>Blog Writing</li>
+            <li>On-page SEO</li>
+            <li>Content Planning</li>
+          </ul>
+        </div>
+
+        <div class="service-row" data-reveal="delay-3">
+          <span class="service-num">03</span>
+          <div class="service-body">
+            <h3>Lead Generation</h3>
+            <p>Turning your social presence into a pipeline. Data-driven funnels and outreach systems that bring the right people directly to your door.</p>
+          </div>
+          <ul class="service-pills">
+            <li>LinkedIn Outreach</li>
+            <li>Lead Magnets</li>
+            <li>Email Sequences</li>
+            <li>Conversion Tracking</li>
+          </ul>
+        </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <footer>
-      <p>© 2025 Renish Shrestha. All rights reserved.</p>
-    </footer>
+  <!-- ── CASE STUDIES ──────────────────────────────── -->
+  <section id="case-studies" class="section">
+    <div class="container">
+      <p class="section-label" data-reveal>Featured Work</p>
+      <h2 class="section-heading" data-reveal="delay-1">
+        Real brands.<br /><em>Real results.</em>
+      </h2>
+      <div class="gold-rule" data-reveal="delay-2"></div>
 
-    <!-- script -->
-    <script src="script.js"></script>
-  </body>
+      <!-- Study 01 -->
+      <article class="cs-block" data-reveal>
+        <div class="cs-header">
+          <span class="cs-idx">01</span>
+          <span class="cs-tag">Fashion &amp; Lifestyle</span>
+        </div>
+        <h3 class="cs-title">
+          From 500 to 12,000 — Instagram Presence for a Kathmandu Fashion Brand
+        </h3>
+        <div class="cs-cols">
+          <div class="cs-story">
+            <p><strong>The challenge:</strong> A local fashion brand had 500 Instagram followers and near-zero engagement. Sales relied entirely on walk-ins; their digital presence wasn't pulling any weight.</p>
+            <p>I built a Reels-first content system, designed a hashtag strategy targeting niche communities across Nepal and South Asia, and launched UGC campaigns that turned customers into ambassadors. Each piece of content served a specific funnel stage.</p>
+          </div>
+          <div class="cs-metrics">
+            <div class="cs-metric">
+              <span class="cs-m-val">12K</span>
+              <span class="cs-m-label">Followers<small>from 500 · 6 months</small></span>
+            </div>
+            <div class="cs-metric">
+              <span class="cs-m-val">8.2%</span>
+              <span class="cs-m-label">Engagement Rate<small>vs. 1–3% industry avg</small></span>
+            </div>
+            <div class="cs-metric">
+              <span class="cs-m-val">+40%</span>
+              <span class="cs-m-label">Online Inquiries<small>via DM &amp; link-in-bio</small></span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Study 02 -->
+      <article class="cs-block" data-reveal>
+        <div class="cs-header">
+          <span class="cs-idx">02</span>
+          <span class="cs-tag">B2B Consulting</span>
+        </div>
+        <h3 class="cs-title">
+          Zero to Lead Machine — LinkedIn Strategy for a B2B Consulting Firm
+        </h3>
+        <div class="cs-cols">
+          <div class="cs-story">
+            <p><strong>The challenge:</strong> A consulting firm with no digital presence relied 100% on referrals. They needed a scalable lead channel without cold-calling.</p>
+            <p>I built a founder-led thought leadership strategy on LinkedIn — content that shared real expertise, built authority in the niche, and started the right conversations. Combined with a systematic outreach cadence, LinkedIn became their #1 business development channel within a quarter.</p>
+          </div>
+          <div class="cs-metrics">
+            <div class="cs-metric">
+              <span class="cs-m-val">2,400</span>
+              <span class="cs-m-label">Followers<small>from 0 · 3 months</small></span>
+            </div>
+            <div class="cs-metric">
+              <span class="cs-m-val">15</span>
+              <span class="cs-m-label">Qualified Leads/Mo<small>by end of Q1</small></span>
+            </div>
+            <div class="cs-metric">
+              <span class="cs-m-val">3</span>
+              <span class="cs-m-label">Clients Closed<small>directly from LinkedIn</small></span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Study 03 -->
+      <article class="cs-block" data-reveal>
+        <div class="cs-header">
+          <span class="cs-idx">03</span>
+          <span class="cs-tag">EdTech</span>
+        </div>
+        <h3 class="cs-title">
+          220% Organic Growth — Content Strategy for an EdTech Platform
+        </h3>
+        <div class="cs-cols">
+          <div class="cs-story">
+            <p><strong>The challenge:</strong> An EdTech startup had decent paid traffic but almost no organic reach. Their blog existed but wasn't converting — high bounce rates and low session time pointed to a content-quality problem.</p>
+            <p>I rebuilt the strategy from scratch: high-intent keyword research, 3 long-form articles per week, tight internal linking, and a content refresh plan. Every piece was written to answer exactly what their audience was Googling.</p>
+          </div>
+          <div class="cs-metrics">
+            <div class="cs-metric">
+              <span class="cs-m-val">+220%</span>
+              <span class="cs-m-label">Organic Traffic<small>in 4 months</small></span>
+            </div>
+            <div class="cs-metric">
+              <span class="cs-m-val">42%</span>
+              <span class="cs-m-label">Bounce Rate<small>down from 78%</small></span>
+            </div>
+            <div class="cs-metric">
+              <span class="cs-m-val">35</span>
+              <span class="cs-m-label">Organic Sign-ups/Mo<small>from near zero</small></span>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ── TESTIMONIALS ──────────────────────────────── -->
+  <section class="section section-dark" id="testimonials">
+    <div class="container">
+      <p class="section-label section-label-light" data-reveal>Kind Words</p>
+
+      <div class="testimonials-list">
+        <blockquote class="t-block" data-reveal="delay-1">
+          <p class="t-quote">
+            "Renish completely transformed our Instagram. We went from posting randomly to
+            having a real content engine — our DMs filled up with customers within weeks.
+            One of the best investments we've made."
+          </p>
+          <footer class="t-footer">
+            <strong>Sita M.</strong>
+            <span>Founder, Fashion Brand · Kathmandu</span>
+          </footer>
+        </blockquote>
+
+        <blockquote class="t-block" data-reveal="delay-2">
+          <p class="t-quote">
+            "I was skeptical about LinkedIn. Renish proved me very wrong. The content he
+            crafted brought in three clients in a single quarter. The ROI is undeniable."
+          </p>
+          <footer class="t-footer">
+            <strong>Anil P.</strong>
+            <span>Managing Director, Consulting Firm · Nepal</span>
+          </footer>
+        </blockquote>
+
+        <blockquote class="t-block" data-reveal="delay-3">
+          <p class="t-quote">
+            "Our blog traffic more than tripled in four months. People are actually reading
+            and signing up now. Renish writes content that's SEO-optimised and genuinely engaging."
+          </p>
+          <footer class="t-footer">
+            <strong>Priya K.</strong>
+            <span>CEO, EdTech Startup</span>
+          </footer>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CONTACT ───────────────────────────────────── -->
+  <section id="contact" class="section contact-section">
+    <div class="container contact-inner">
+      <p class="section-label" data-reveal>Get in Touch</p>
+      <h2 class="contact-heading" data-reveal="delay-1">
+        Ready to grow<br /><em>your brand?</em>
+      </h2>
+
+      <a href="mailto:srenish108@gmail.com" class="email-link" data-reveal="delay-2">
+        srenish108@gmail.com
+      </a>
+
+      <div class="socials" data-reveal="delay-3">
+        <a href="https://www.linkedin.com/in/renish-shrestha-334a0620a/" target="_blank" aria-label="LinkedIn">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+        <a href="mailto:srenish108@gmail.com" aria-label="Email">
+          <i class="fas fa-envelope"></i>
+        </a>
+        <a href="https://www.instagram.com/renish_sth" target="_blank" aria-label="Instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://wa.me/9813855194" target="_blank" aria-label="WhatsApp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </div>
+
+      <a href="mailto:srenish108@gmail.com" class="btn btn-gold btn-large" data-reveal="delay-4">
+        Send a Message
+      </a>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ────────────────────────────────────── -->
+  <footer class="site-footer">
+    <span>© 2025 Renish Shrestha</span>
+    <span class="footer-divider">·</span>
+    <span>Digital Marketer</span>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
 </html>
