@@ -1106,6 +1106,14 @@ strong {
 ═══════════════════════════════════════════ */
 @media (max-width: 900px) {
 
+  /* Nav — always solid on mobile */
+  #site-header {
+    background: rgba(250,248,244,0.96);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+  }
+
   /* Nav — fullscreen overlay */
   .hamburger { display: flex; }
   .nav-cta   { display: none; }
@@ -1139,8 +1147,8 @@ strong {
   .hero-photo-wrap {
     grid-column: 1;
     grid-row: 1;
-    height: 52vw;
-    max-height: 340px;
+    height: 44vw;
+    max-height: 300px;
     width: 100%;
     border-radius: 4px;
   }
@@ -1184,7 +1192,7 @@ strong {
 
   /* Hero */
   .hero { padding: 6rem 1.25rem 2rem; }
-  .hero-photo-wrap { height: 65vw; max-height: 280px; }
+  .hero-photo-wrap { height: 52vw; max-height: 220px; }
   .hero-sub { font-size: 0.92rem; }
   .hero-actions { width: 100%; flex-direction: column; }
   .hero-actions .btn { width: 100%; justify-content: center; }
@@ -1217,4 +1225,12 @@ strong {
 
   /* Marquee */
   .marquee-inner span { font-size: 0.75rem; }
+}
+
+/* ═══════════════════════════════════════════
+   TOUCH DEVICES — hide custom cursor
+═══════════════════════════════════════════ */
+@media (hover: none) and (pointer: coarse) {
+  .cursor-ring, .cursor-dot { display: none !important; }
+  body, a, button, [data-cursor-expand] { cursor: auto; }
 }
