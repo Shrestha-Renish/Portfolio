@@ -951,37 +951,130 @@ strong { color: var(--cream); font-weight: 500; }
 .footer-nav a:hover { color: var(--gold-light); }
 
 /* ═══════════════════════════════════════════
-   RESPONSIVE
+   RESPONSIVE — TABLET (≤900px)
 ═══════════════════════════════════════════ */
 @media (max-width: 900px) {
+
+  /* Nav — show hamburger, fullscreen overlay */
+  .hamburger { display: flex; }
+  .nav-cta   { display: none; }
+  .nav-links {
+    position: fixed;
+    inset: 0;
+    background: rgba(250,248,244,.97);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2.5rem;
+    margin: 0;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.35s var(--ease-out);
+    z-index: 99;
+  }
+  .nav-links.open { opacity: 1; pointer-events: all; }
+  .nav-links a { font-size: 1.1rem; letter-spacing: 0.15em; }
+
+  /* Hero — stack photo above text */
   .hero {
     grid-template-columns: 1fr;
     grid-template-rows: auto auto;
-    padding: 8rem 2rem 0;
-    gap: 3rem 0;
+    min-height: unset;
+    padding: 7rem 2rem 3rem;
+    gap: 2.5rem 0;
   }
   .hero-photo-wrap {
     grid-column: 1;
     grid-row: 1;
-    height: 55vw;
-    max-height: 360px;
+    height: 56vw;
+    max-height: 380px;
     width: 100%;
-    border-radius: 0;
+    border-radius: 4px;
   }
   .hero-left { grid-row: 2; }
-  .hero-stats { justify-content: center; }
-  .services-grid { grid-template-columns: 1fr; }
+  .hero-scroll-hint { display: none; }
+
+  /* Hero stats */
+  .hero-stats {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.25rem 2rem;
+    margin-top: 2rem;
+  }
+  .h-stat { text-align: center; }
+  .h-stat-divider { display: none; }
+
+  /* About */
+  .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+
+  /* Services — pills wrap below body */
+  .service-row {
+    grid-template-columns: 56px 1fr;
+    grid-template-rows: auto auto;
+    gap: 1rem 1.5rem;
+  }
+  .service-pills {
+    grid-column: 2;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+
+  /* Case studies */
   .cs-cols { grid-template-columns: 1fr; }
   .cs-metrics { grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+
+  /* Testimonials */
   .t-grid { grid-template-columns: 1fr; }
-  .footer-inner { flex-direction: column; text-align: center; }
+
+  /* Footer */
+  .footer-inner { flex-direction: column; align-items: center; text-align: center; gap: 1rem; }
   .footer-nav { justify-content: center; }
 }
 
+/* ═══════════════════════════════════════════
+   RESPONSIVE — MOBILE (≤600px)
+═══════════════════════════════════════════ */
 @media (max-width: 600px) {
-  .hero-heading { font-size: clamp(2.8rem, 14vw, 4rem); }
-  .section-heading { font-size: clamp(2rem, 10vw, 3.5rem); }
+
+  /* Typography */
+  .hero-heading { font-size: clamp(2.6rem, 13vw, 3.8rem); }
+  .section-heading { font-size: clamp(2rem, 10vw, 3rem); }
+  .section { padding: 5rem 1.25rem; }
+  .contact-inner { padding: 5rem 1.25rem; }
+
+  /* Hero */
+  .hero { padding: 6rem 1.25rem 2rem; }
+  .hero-photo-wrap { height: 70vw; max-height: 320px; }
+  .hero-sub { font-size: 0.92rem; }
+  .hero-actions { width: 100%; flex-direction: column; }
+  .hero-actions .btn { width: 100%; justify-content: center; }
+
+  /* Hero stats — 2x2 grid */
+  .hero-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+  .h-stat-divider { display: none; }
+
+  /* About */
+  .about-grid { gap: 2rem; }
+  .tag-list span { font-size: 0.68rem; }
+
+  /* Services */
+  .service-row { grid-template-columns: 1fr; padding: 2rem 0; gap: 0.75rem; }
+  .service-num { font-size: 1.6rem; }
+  .service-pills { flex-direction: row; flex-wrap: wrap; align-items: flex-start; }
+
+  /* Case studies */
   .cs-metrics { grid-template-columns: 1fr 1fr; }
-  .hero-stats { flex-direction: column; gap: 1.5rem; }
-  .stat-divider { display: none; }
+  .cs-m-val { font-size: 2rem; }
+  .cs-title { font-size: 1.5rem; }
+
+  /* Contact */
+  .email-link { font-size: 1rem; word-break: break-all; }
+  .socials { gap: 0.9rem; }
+
+  /* Marquee */
+  .marquee-inner span { font-size: 0.75rem; }
 }
