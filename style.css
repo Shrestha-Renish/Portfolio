@@ -270,15 +270,16 @@ strong {
   left: 0;
   right: 0;
   z-index: 100;
+  background: rgba(250, 248, 244, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   transition:
     background 0.4s,
     border-bottom 0.4s,
     box-shadow 0.4s;
 }
 #site-header.scrolled {
-  background: rgba(250, 248, 244, 0.95);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  background: rgba(250, 248, 244, 0.97);
   border-bottom: 1px solid var(--border);
   box-shadow: 0 1px 20px rgba(0, 0, 0, 0.06);
 }
@@ -1160,6 +1161,7 @@ strong {
   }
   .hero-left .hero-stats { margin-top: 0; padding-top: 2rem; }
   .hero-scroll-hint { display: none; }
+  .hero-photo-frame { height: 100%; max-height: none; }
 
   /* Hero stats */
   .hero-stats { display: flex; flex-wrap: wrap; justify-content: center; gap: 1.25rem 2rem; margin-top: 2rem; }
