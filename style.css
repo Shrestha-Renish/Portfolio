@@ -1162,6 +1162,7 @@ strong {
   .hero-left .hero-stats { margin-top: 0; padding-top: 2rem; }
   .hero-scroll-hint { display: none; }
   .hero-photo-frame { height: 100%; max-height: none; }
+  .hero-photo { object-position: center 15%; transform: scale(1.1); transform-origin: center 15%; }
 
   /* Hero stats */
   .hero-stats { display: flex; flex-wrap: wrap; justify-content: center; gap: 1.25rem 2rem; margin-top: 2rem; }
