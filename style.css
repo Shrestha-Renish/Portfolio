@@ -631,6 +631,12 @@ strong {
   color: var(--cream-muted);
   margin: 0 1.5rem;
   letter-spacing: 0.04em;
+  display: inline-block;
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), color 0.35s ease;
+}
+.marquee-inner span.marquee-lit {
+  transform: scale(1.22);
+  color: var(--cream);
 }
 .marquee-inner .sep {
   color: var(--gold);
@@ -884,6 +890,13 @@ strong {
   gap: 0.2rem;
   padding: 1.25rem 0;
   border-bottom: 1px solid var(--border);
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.55s ease, transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.cs-metric.metric-in {
+  opacity: 1;
+  transform: translateY(0);
 }
 .cs-metric:last-child {
   border-bottom: none;
@@ -1148,8 +1161,8 @@ strong {
   .hero-photo-wrap {
     grid-column: 1;
     grid-row: 1;
-    height: 44vw;
-    max-height: 300px;
+    height: 72svh;
+    max-height: 600px;
     width: 100%;
     border-radius: 4px;
   }
@@ -1162,7 +1175,7 @@ strong {
   .hero-left .hero-stats { margin-top: 0; padding-top: 2rem; }
   .hero-scroll-hint { display: none; }
   .hero-photo-frame { height: 100%; max-height: none; }
-  .hero-photo { object-position: center 15%; transform: scale(1.1); transform-origin: center 15%; }
+  .hero-photo { object-position: center 65%; transform: scale(1); transform-origin: center center; }
 
   /* Hero stats */
   .hero-stats { display: flex; flex-wrap: wrap; justify-content: center; gap: 1.25rem 2rem; margin-top: 2rem; }
@@ -1204,7 +1217,7 @@ strong {
 
   /* Hero */
   .hero { padding: 6rem 1.25rem 2rem; }
-  .hero-photo-wrap { height: 52vw; max-height: 220px; }
+  .hero-photo-wrap { height: 68svh; max-height: 540px; }
   .hero-sub { font-size: 0.92rem; }
   .hero-actions { width: 100%; flex-direction: column; }
   .hero-actions .btn { width: 100%; justify-content: center; }
@@ -1245,4 +1258,25 @@ strong {
 @media (hover: none) and (pointer: coarse) {
   .cursor-ring, .cursor-dot { display: none !important; }
   body, a, button, [data-cursor-expand] { cursor: auto; }
+}
+
+/* ─────────────────────────────────────────────
+   METRIC ANIMATIONS
+───────────────────────────────────────────── */
+
+/* Gold flash when count-up completes */
+.count-done {
+  color: var(--gold) !important;
+  transition: color 0.35s ease;
+}
+
+/* Pop-in for symbol values (↑, ✓, etc.) */
+@keyframes symPop {
+  0%   { transform: scale(0.2) rotate(-15deg); opacity: 0; }
+  70%  { transform: scale(1.15) rotate(4deg);  opacity: 1; }
+  100% { transform: scale(1) rotate(0deg);     opacity: 1; }
+}
+.metric-symbol-pop {
+  display: inline-block;
+  animation: symPop 0.55s cubic-bezier(0.34, 1.56, 0.64, 1) both;
 }

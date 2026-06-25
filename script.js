@@ -193,3 +193,133 @@ document.querySelectorAll('.cs-block').forEach((block) => {
     title.style.color = '';
   });
 });
+
+/* ─────────────────────────────────────────────
+   MARQUEE — highlight span under stationary cursor
+   CSS :hover doesn't re-evaluate during animations,
+   so we use elementFromPoint on every rAF tick.
+───────────────────────────────────────────── */
+(function () {
+  const track = document.querySelector('.marquee-track');
+  if (!track) return;
+
+  let cx = null, cy = null;
+  let lit = null;
+  let raf = null;
+
+  function tick() {
+    if (cx === null) return;
+    const el = document.elementFromPoint(cx, cy);
+    const span = el && el.tagName === 'SPAN' && !el.classList.contains('sep') && el.closest('.marquee-inner')
+      ? el : null;
+
+    if (span !== lit) {
+      if (lit) lit.classList.remove('marquee-lit');
+      lit = span;
+      if (lit) lit.classList.add('marquee-lit');
+    }
+    raf = requestAnimationFrame(tick);
+  }
+
+  track.addEventListener('pointerenter', (e) => {
+    cx = e.clientX; cy = e.clientY;
+    raf = requestAnimationFrame(tick);
+  });
+  track.addEventListener('pointermove', (e) => {
+    cx = e.clientX; cy = e.clientY;
+  });
+  track.addEventListener('pointerleave', () => {
+    cx = cy = null;
+    if (lit) { lit.classList.remove('marquee-lit'); lit = null; }
+    cancelAnimationFrame(raf);
+  });
+})();
+
+/* ─────────────────────────────────────────────
+   METRIC ANIMATIONS — count-up + card stagger
+───────────────────────────────────────────── */
+
+// Easing
+function easeOutQuart(t) { return 1 - Math.pow(1 - t, 4); }
+
+// Count-up: works with elements that may have <sup> children
+// by updating only the first text node so markup stays intact
+function animateCount(el) {
+  const target  = parseInt(el.dataset.count, 10);
+  const format  = el.dataset.format || '';   // 'K' → display as "2.1K"
+  const suffix  = el.dataset.suffix || '';   // '%', '+', '×'
+  const dur     = 2800;
+  let   start   = null;
+
+  // Find or create the leading text node
+  let textNode = [...el.childNodes].find(n => n.nodeType === Node.TEXT_NODE);
+  if (!textNode) {
+    textNode = document.createTextNode('');
+    el.insertBefore(textNode, el.firstChild);
+  }
+
+  function step(ts) {
+    if (!start) start = ts;
+    const p   = Math.min((ts - start) / dur, 1);
+    const val = Math.round(easeOutQuart(p) * target);
+
+    if (format === 'K') {
+      textNode.textContent = (val / 1000).toFixed(1).replace(/\.0$/, '') + 'K';
+    } else {
+      textNode.textContent = val + suffix;
+    }
+
+    if (p < 1) {
+      requestAnimationFrame(step);
+    } else {
+      // Gold flash on completion
+      el.classList.add('count-done');
+      setTimeout(() => el.classList.remove('count-done'), 700);
+    }
+  }
+
+  requestAnimationFrame(step);
+}
+
+// Observe numeric stat elements
+const countEls = document.querySelectorAll(
+  '.h-stat-num[data-count], .cs-m-val[data-count]'
+);
+
+const countObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+    animateCount(entry.target);
+    countObserver.unobserve(entry.target);
+  });
+}, { threshold: 0.6 });
+
+countEls.forEach(el => countObserver.observe(el));
+
+// Symbol pop-in for non-numeric cs-m-val (↑, ✓, etc.)
+const symbolEls = document.querySelectorAll('.cs-m-val:not([data-count])');
+
+const symbolObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+    entry.target.classList.add('metric-symbol-pop');
+    symbolObserver.unobserve(entry.target);
+  });
+}, { threshold: 0.6 });
+
+symbolEls.forEach(el => symbolObserver.observe(el));
+
+// Staggered entrance for .cs-metric cards
+const metricGroups = document.querySelectorAll('.cs-metrics');
+
+const metricsObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+    entry.target.querySelectorAll('.cs-metric').forEach((card, i) => {
+      setTimeout(() => card.classList.add('metric-in'), i * 150);
+    });
+    metricsObserver.unobserve(entry.target);
+  });
+}, { threshold: 0.15 });
+
+metricGroups.forEach(g => metricsObserver.observe(g));
